@@ -8,6 +8,7 @@ public class Login extends JFrame{
 
         JLabel textoLogin;
         JLabel textoSenha;
+        JLabel esqueciSenha;
 
         JTextField campoLogin;
         JTextField campoSenha;
@@ -28,6 +29,9 @@ public class Login extends JFrame{
         textoSenha = new JLabel("Senha:");
         textoSenha.setBounds(30,190,90,50);
 
+        esqueciSenha = new JLabel("esqueci minha senha");
+        esqueciSenha.setBounds(30,190,90,50);
+
 
         //definindo compo login
         campoLogin = new JTextField();
@@ -47,14 +51,19 @@ public class Login extends JFrame{
         GridBagConstraints gbc = new GridBagConstraints();
 
         // Define a posição do botão "Cadastrar" abaixo do botão "Entrar"
-        gbc.gridy = 5;
+        gbc.gridy = 6;
         gbc.anchor = GridBagConstraints.CENTER;
-        gbc.insets = new Insets(0, 0, 10, 0);  // Espaçamento de 300 pixels acima do botão
+        gbc.insets = new Insets(0, 0, 2, 0);  // Espaçamento de 300 pixels acima do botão
         buttonPanel.add(botaoCadastrar, gbc);
 
         // Define a posição do botão "Login" abaixo do botão "Entrar"
-        gbc.gridy = 4;
+        gbc.gridy = 5;
         buttonPanel.add(botaoLogin, gbc);
+
+        // Define a posição do botão "Esqueci minha senha" abaixo do botão "Entrar"
+        gbc.gridy = 4;
+        gbc.anchor = GridBagConstraints.LAST_LINE_END;
+        buttonPanel.add(esqueciSenha, gbc);
 
 
         // Define a posição do campo "Senha" abaixo do botão "Entrar"
