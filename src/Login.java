@@ -1,10 +1,16 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Login extends JFrame{
+    JButton botaoLogin;
+    JButton botaoCadastrar;
+
     public Login() {
-        JPanel buttonPanel = new JPanel(new GridBagLayout());
-        buttonPanel.setBackground(Color.white);
+
+        JPanel painel = new JPanel(new GridBagLayout());
+        painel.setBackground(Color.white);//muda a cor do painel
 
         JLabel textoLogin = new JLabel("Login:");
         JLabel textoSenha = new JLabel("Senha:");
@@ -16,13 +22,14 @@ public class Login extends JFrame{
         JTextField campoSenha = new JTextField();
         campoSenha.setPreferredSize(new Dimension(300, 25));
 
-        JButton botaoLogin = new JButton("Entrar");
+        botaoLogin = new JButton("Entrar");
         botaoLogin.setPreferredSize(new Dimension(300, 30));
-        JButton botaoCadastrar = new JButton("Cadastrar");
+
+        botaoCadastrar = new JButton("Cadastrar");
         botaoCadastrar.setPreferredSize(new Dimension(300, 30));
 
-
-        setMinimumSize(new Dimension(1000, 800));
+        setSize(1700,1100);;//testar
+        setMinimumSize(new Dimension(1600, 1000));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
@@ -32,32 +39,41 @@ public class Login extends JFrame{
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.anchor = GridBagConstraints.LINE_START;
-        buttonPanel.add(textoLogin, gbc);
+        painel.add(textoLogin, gbc);
 
         gbc.insets = new Insets(0, 5, 20, 5);
         gbc.gridy = 1;
-        buttonPanel.add(campoLogin, gbc);
+        painel.add(campoLogin, gbc);
 
         gbc.insets = new Insets(0, 5, 5, 5);
         gbc.gridy = 2;
-        buttonPanel.add(textoSenha, gbc);
+        painel.add(textoSenha, gbc);
 
         gbc.gridy = 3;
-        buttonPanel.add(campoSenha, gbc);
+        painel.add(campoSenha, gbc);
 
         gbc.insets = new Insets(0, 5, 20, 5);
         gbc.gridy = 4;
         gbc.anchor = GridBagConstraints.LAST_LINE_END;
-        //gbc.insets = new Insets(0, 182, 20, 10);
-        buttonPanel.add(esqueciSenha, gbc);
+        painel.add(esqueciSenha, gbc);
 
         gbc.gridy = 5;
         gbc.insets = new Insets(0, 5, 15, 5);
-        buttonPanel.add(botaoLogin, gbc);
+        painel.add(botaoLogin, gbc);
 
         gbc.gridy = 6;
-        buttonPanel.add(botaoCadastrar, gbc);
+        painel.add(botaoCadastrar, gbc);
 
-        add(buttonPanel, BorderLayout.CENTER);
+        add(painel, BorderLayout.CENTER);
+
+        botaoCadastrar.addActionListener(this::Cadastrar);
+        botaoLogin.addActionListener(this::Logar);
+
+    }
+    public void Cadastrar(ActionEvent e) {
+        System.out.println("Clicando cadastrar");
+    }
+    public void Logar(ActionEvent e) {
+        System.out.println("Clicando logar");
     }
 }
