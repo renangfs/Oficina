@@ -14,7 +14,7 @@ public class Login extends JFrame{
 
         JLabel textoLogin = new JLabel("Login:");
         JLabel textoSenha = new JLabel("Senha:");
-        JLabel esqueciSenha = new JLabel("                                               Esqueci minha senha");//gambiarra
+        JLabel esqueciSenha = new JLabel("                                                Esqueci minha senha");//gambiarra
         esqueciSenha.setPreferredSize(new Dimension(300, 25));
 
         JTextField campoLogin = new JTextField();
@@ -28,10 +28,10 @@ public class Login extends JFrame{
         botaoCadastrar = new JButton("Cadastrar");
         botaoCadastrar.setPreferredSize(new Dimension(300, 30));
 
-        setSize(1700,1100);;//testar
-        setMinimumSize(new Dimension(1600, 1000));
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
+        setSize(1700,1100);//Tamanho de abertura
+        setMinimumSize(new Dimension(1600, 1000));//Tamanho mínimo da janela
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//Quando fechar a janela o programa vai ser encerrado
+        setLocationRelativeTo(null);//Centraliza a janela
 
         GridBagConstraints gbc = new GridBagConstraints();
 
@@ -54,11 +54,10 @@ public class Login extends JFrame{
 
         gbc.insets = new Insets(0, 5, 20, 5);
         gbc.gridy = 4;
-        gbc.anchor = GridBagConstraints.LAST_LINE_END;
         painel.add(esqueciSenha, gbc);
 
-        gbc.gridy = 5;
         gbc.insets = new Insets(0, 5, 15, 5);
+        gbc.gridy = 5;
         painel.add(botaoLogin, gbc);
 
         gbc.gridy = 6;
