@@ -36,7 +36,6 @@ public class Login extends JFrame{
         GridBagConstraints gbc = new GridBagConstraints();
 
         gbc.insets = new Insets(0, 5, 5, 5);
-        gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.anchor = GridBagConstraints.LINE_START;
         painel.add(textoLogin, gbc);
