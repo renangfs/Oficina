@@ -42,8 +42,11 @@ public class Cadastro extends JFrame {
         JTextField campoSenha = new JTextField();
         campoSenha.setPreferredSize(new Dimension(250, 25));
 
+        JButton botaoCancelar = new JButton("Cancelar");
+        botaoCancelar.setBounds(50, 50, 100, 30); // (x, y, largura, altura)
+
         JButton botaoCadastrar = new JButton("Cadastrar");
-        botaoAplicar.setBounds(50, 50, 100, 30); // (x, y, largura, altura)
+        botaoCadastrar.setBounds(50, 50, 100, 30); // (x, y, largura, altura)
 
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridy = 0;
@@ -96,8 +99,10 @@ public class Cadastro extends JFrame {
         gbc.gridx = 1;
         panel.add(campoSenha, gbc);
 
-        gbc.insets = new Insets(40, 170, 5, 5);
+        gbc.insets = new Insets(40, 100, 5, 5);
         gbc.gridy = 8;//direita
+        panel.add(botaoCancelar, gbc);
+        gbc.insets = new Insets(40, 200, 5, 5);
         panel.add(botaoCadastrar, gbc);
 
 

@@ -14,8 +14,7 @@ public class Login extends JFrame{
 
         JLabel textoLogin = new JLabel("Login:");
         JLabel textoSenha = new JLabel("Senha:");
-        JLabel esqueciSenha = new JLabel("                                                Esqueci minha senha");//gambiarra
-        esqueciSenha.setPreferredSize(new Dimension(300, 25));
+        JLabel esqueciSenha = new JLabel("Esqueci minha senha");
 
         JTextField campoLogin = new JTextField();
         campoLogin.setPreferredSize(new Dimension(300, 25));
@@ -25,7 +24,7 @@ public class Login extends JFrame{
         botaoLogin = new JButton("Entrar");
         botaoLogin.setPreferredSize(new Dimension(300, 30));
 
-        botaoCadastrar = new JButton("Cadastrar");
+        botaoCadastrar = new JButton("Cadastre-se  ");
         botaoCadastrar.setPreferredSize(new Dimension(300, 30));
 
         setSize(1700,1100);//Tamanho de abertura
@@ -34,10 +33,12 @@ public class Login extends JFrame{
         setLocationRelativeTo(null);//Centraliza a janela
 
         GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridy = 0;
+        gbc.gridx = 0;
+        //gbc.gridwidth = 2;
 
         gbc.insets = new Insets(0, 5, 5, 5);
-        gbc.gridy = 0;
-        gbc.anchor = GridBagConstraints.LINE_START;
+        gbc.anchor = GridBagConstraints.FIRST_LINE_START;
         painel.add(textoLogin, gbc);
 
         gbc.insets = new Insets(0, 5, 20, 5);
@@ -51,16 +52,17 @@ public class Login extends JFrame{
         gbc.gridy = 3;
         painel.add(campoSenha, gbc);
 
-        gbc.insets = new Insets(0, 5, 20, 5);
         gbc.gridy = 4;
+        gbc.insets = new Insets(0, 5, 20, 5);
+        gbc.anchor = GridBagConstraints.LAST_LINE_END;
         painel.add(esqueciSenha, gbc);
 
         gbc.insets = new Insets(0, 5, 15, 5);
         gbc.gridy = 5;
         painel.add(botaoLogin, gbc);
-
-        gbc.gridy = 6;
-        painel.add(botaoCadastrar, gbc);
+//
+//        gbc.gridy = 6;
+//        painel.add(botaoCadastrar, gbc);
 
         add(painel, BorderLayout.CENTER);
 
