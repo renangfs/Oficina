@@ -7,6 +7,8 @@ public class Main{
 //            Cadastro.setVisible(true);
             Login login = new Login();
             login.setVisible(true);
+//            Logo logo = new Logo();
+//            logo.setVisible(true);
         });
     }
 }
