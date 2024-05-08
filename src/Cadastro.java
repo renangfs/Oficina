@@ -113,7 +113,7 @@ public class Cadastro extends JFrame {
         add(panel, BorderLayout.CENTER);
 
         botaoCancelar.addActionListener(this::Cancelar);
-        botaoCancelar.addActionListener(this::Cadastrar);
+        botaoCadastrar.addActionListener(this::Cadastrar);
     }
     public void Cancelar(ActionEvent e) {
         System.out.println("Voltando para o Login");
