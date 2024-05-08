@@ -83,11 +83,15 @@ public class Login extends JFrame{
         add(painelLogo);
         botaoCadastrar.addActionListener(this::Cadastrar);
         botaoLogin.addActionListener(this::Logar);
-
     }
 
     public void Cadastrar(ActionEvent e) {
         System.out.println("Clicando cadastrar");
+        // Fecha a janela de login
+        dispose();
+        // Abre a janela de cadastro
+        Cadastro cadastro = new Cadastro();
+        cadastro.setVisible(true);
     }
 
     public void Logar(ActionEvent e) {

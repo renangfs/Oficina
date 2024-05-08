@@ -1,7 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 
 public class Cadastro extends JFrame {
+    JButton botaoCancelar;
+    JButton botaoCadastrar;
+
     public Cadastro(){
 
         setSize(1200,800);//Tamanho de abertura
@@ -42,10 +46,10 @@ public class Cadastro extends JFrame {
         JTextField campoSenha = new JTextField();
         campoSenha.setPreferredSize(new Dimension(200, 25));
 
-        JButton botaoCancelar = new JButton("Cancelar");
+        botaoCancelar = new JButton("Cancelar");
         botaoCancelar.setBounds(50, 50, 100, 30); // (x, y, largura, altura)
 
-        JButton botaoCadastrar = new JButton("Cadastrar");
+        botaoCadastrar = new JButton("Cadastrar");
         botaoCadastrar.setBounds(50, 50, 100, 30); // (x, y, largura, altura)
 
         GridBagConstraints gbc = new GridBagConstraints();
@@ -106,7 +110,16 @@ public class Cadastro extends JFrame {
         gbc.insets = new Insets(40, 120, 5, 5);
         panel.add(botaoCadastrar, gbc);
 
-
         add(panel, BorderLayout.CENTER);
+
+        botaoCancelar.addActionListener(this::Cancelar);
+    }
+    public void Cancelar(ActionEvent e) {
+        System.out.println("Voltando para o Login");
+        // Fecha a janela de login
+        dispose();
+        // Abre a janela de cadastro
+        Login login = new Login();
+        login.setVisible(true);
     }
 }
