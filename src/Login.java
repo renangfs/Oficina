@@ -19,7 +19,7 @@ public class Login extends JFrame {
         setLocationRelativeTo(null);//centraliza a janela
 
         painelLogo = new JPanel(new GridBagLayout());
-        painelLogo.setBackground(Color.red);
+        painelLogo.setBackground(Color.white);
         painelLogin = new JPanel(new GridBagLayout());
         painelLogin.setBackground(Color.white);
 
@@ -89,8 +89,14 @@ public class Login extends JFrame {
 
     public void voltarLogin() {
         getContentPane().removeAll(); // Remove todos os componentes da janela
-        add(painelLogo, BorderLayout.CENTER); // Adiciona o painel de logotipo no topo (norte)
-        add(painelLogin, BorderLayout.CENTER); // Adiciona o painel de login no centro
+        GridBagConstraints gbc = new GridBagConstraints();//ajuda na posição dos componentes
+
+        add(painelLogo);
+        gbc.gridy = 1;
+        gbc.insets = new Insets(0, 0, 0, 0);
+        painelLogo.add(painelLogin, gbc);
+        add(painelLogo);
+
         revalidate(); // Revalida o layout da janela
         repaint(); // Redesenha a janela
     }
