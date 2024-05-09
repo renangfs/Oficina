@@ -2,18 +2,25 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
-public class Login extends JFrame{
-    JButton botaoLogin;
+public class Login extends JFrame {
+    JButton botaoEntrar;
     JButton botaoCadastrar;
 
     ImageIcon image = new ImageIcon(getClass().getResource("logo.png"));
     JLabel logo = new JLabel(image);
 
-    public Login() {
+    JPanel painelLogo;
+    JPanel painelLogin;
 
-        JPanel painelLogo = new JPanel(new GridBagLayout());
-        painelLogo.setBackground(Color.white);
-        JPanel painelLogin = new JPanel(new GridBagLayout());
+    public Login() {
+        setSize(1200, 800);//largura e altura da janela
+        setMinimumSize(new Dimension(1200, 800));//largura e altura minima da janela
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//configurando o encerramento do programa ao fechar
+        setLocationRelativeTo(null);//centraliza a janela
+
+        painelLogo = new JPanel(new GridBagLayout());
+        painelLogo.setBackground(Color.red);
+        painelLogin = new JPanel(new GridBagLayout());
         painelLogin.setBackground(Color.white);
 
         JLabel textoLogin = new JLabel("Login:");
@@ -25,18 +32,13 @@ public class Login extends JFrame{
         JTextField campoSenha = new JTextField();
         campoSenha.setPreferredSize(new Dimension(300, 25));
 
-        botaoLogin = new JButton("Entrar");
-        botaoLogin.setPreferredSize(new Dimension(300, 30));
+        botaoEntrar = new JButton("Entrar");
+        botaoEntrar.setPreferredSize(new Dimension(300, 30));
 
         botaoCadastrar = new JButton("Cadastre-se  ");
         botaoCadastrar.setPreferredSize(new Dimension(300, 30));
 
-        setSize(1200,800);
-        setMinimumSize(new Dimension(1200,800));
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-
-        GridBagConstraints gbc = new GridBagConstraints();
+        GridBagConstraints gbc = new GridBagConstraints();//ajuda na posição dos componentes
         gbc.gridy = 0;
         gbc.gridx = 0;
 
@@ -75,23 +77,31 @@ public class Login extends JFrame{
         gbc.insets = new Insets(0, 5, 15, 5);
         gbc.gridy = 5;
         gbc.anchor = GridBagConstraints.CENTER;
-        painelLogin.add(botaoLogin, gbc);
+        painelLogin.add(botaoEntrar, gbc);
 
         gbc.gridy = 6;
         painelLogin.add(botaoCadastrar, gbc);
 
         add(painelLogo);
         botaoCadastrar.addActionListener(this::Cadastrar);
-        botaoLogin.addActionListener(this::Logar);
+        botaoEntrar.addActionListener(this::Logar);
+    }
+
+    public void voltarLogin() {
+        getContentPane().removeAll(); // Remove todos os componentes da janela
+        add(painelLogo, BorderLayout.CENTER); // Adiciona o painel de logotipo no topo (norte)
+        add(painelLogin, BorderLayout.CENTER); // Adiciona o painel de login no centro
+        revalidate(); // Revalida o layout da janela
+        repaint(); // Redesenha a janela
     }
 
     public void Cadastrar(ActionEvent e) {
-        System.out.println("Clicando cadastrar");
-        // Fecha a janela de login
-        dispose();
-        // Abre a janela de cadastro
-        Cadastro cadastro = new Cadastro();
-        cadastro.setVisible(true);
+        getContentPane().removeAll(); // Remove todos os componentes da janela
+        // Criar e adicionar os novos componentes à janela
+        Cadastro cadastro = new Cadastro(this); // Passa a referência da instância de Login para Cadastro
+        JPanel painelCadastro = cadastro.getPanelCadastro(); // Obtém o painel do cadastro
+        add(painelCadastro, BorderLayout.CENTER); // Adiciona o painel do cadastro ao centro da janela
+        revalidate(); // Revalida o layout da janela após adicionar os novos componentes
     }
 
     public void Logar(ActionEvent e) {
